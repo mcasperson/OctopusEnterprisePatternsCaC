@@ -116,6 +116,8 @@ step "end-to-end-test-with-cypress" {
         properties = {
             Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = <<-EOT
+                # This is a comment
+                
                 cd octopub-cypress
                 
                 NO_COLOR=1 CYPRESS_BASE_URL=https://#{Octopus.Action[Create Web App].Output.HostName}/ cypress run 2>&1
